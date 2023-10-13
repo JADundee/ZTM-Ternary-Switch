@@ -9,10 +9,11 @@
 } */
 
 // answer: 
-var experiencePoints = winBattle() ? 10 : 1;
+
+/* var experiencePoints = winBattle() ? 10 : 1; */
 
 //Using this function, answer the questions below:
-function moveCommand(direction) {
+/* function moveCommand(direction) {
     var whatHappens;
     switch (direction) {
         case "forward":
@@ -33,13 +34,13 @@ function moveCommand(direction) {
             whatHappens = "please enter a valid direction";
     }
     return whatHappens;
-}
+} */
 
 //#2 return value when moveCommand("forward");
 
 //answer: "undefined"
 
-function moveCommand(direction) {
+/* function moveCommand(direction) {
     var whatHappens;
     switch (direction) {
         case "forward":
@@ -60,13 +61,13 @@ function moveCommand(direction) {
             whatHappens = "please enter a valid direction";
     }
     return whatHappens;
-}
+} */
 
 //#3 return value when moveCommand("back");
 
 //answer: "you arrived home"
 
-function moveCommand(direction) {
+/* function moveCommand(direction) {
     var whatHappens;
     switch (direction) {
         case "forward":
@@ -86,13 +87,13 @@ function moveCommand(direction) {
             whatHappens = "please enter a valid direction";
     }
     return whatHappens;
-}
+} */
 
 //#4 return value when moveCommand("right");
 
 //answer: "you found a river"
 
-function moveCommand(direction) {
+/* function moveCommand(direction) {
     var whatHappens;
     switch (direction) {
         case "forward":
@@ -113,12 +114,13 @@ function moveCommand(direction) {
     }
     return whatHappens;
 }
+ */
 
 //#5 return value when moveCommand("left");
 
 //answer: "undefined"
 
-function moveCommand(direction) {
+/* function moveCommand(direction) {
     var whatHappens;
     switch (direction) {
         case "forward":
@@ -137,6 +139,56 @@ function moveCommand(direction) {
             whatHappens = "please enter a valid direction";
     }
     return whatHappens;
-}
+} */
 
 //BONUS: practice makes perfect. Go and write your own switch function. It takes time to get used to the syntax!
+
+
+// Interactive game
+let playGame = confirm("Do you want to play Combat Roll?");
+if (playGame) {
+
+  while (playGame) {
+  const playerChoice = prompt("Please enter left, right, up, or down");
+  if (playerChoice || playerChoice === "") {
+    const direction = playerChoice.trim().toLowerCase();
+    if (
+      direction === "left" ||
+      direction === "right" ||
+      direction === "up" ||
+      direction === "down"
+    ) {
+            switch (direction) {
+                case "up":
+                    alert("you encounter a monster");
+                    // monster encounter mini game
+                    
+                    break;
+                case "down":
+                    alert("you arrived home");
+                    break; 
+                case "right":
+                    alert("you found a river");
+                    break;
+                case "left":
+                    alert("you run into a forest");
+                    break;
+                default:
+                    alert("please enter a valid direction");
+            }
+     
+      playGame = confirm("Play Again?");
+      if (!playGame) alert("Ok, thanks for playing.");
+      continue;
+    } else {
+      alert("You didn't enter a direction");
+      continue;
+    }
+  } else {
+    alert("I guess you changed your mind. Maybe next time.");
+    break;
+  }
+  }
+} else {
+  alert("Ok, maybe next time.");
+}
